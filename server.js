@@ -26,7 +26,21 @@ app.use(express.static('public'));
 
 // to go to index.html page (client side)
 app.get('/', function(req, res, next){
-  res.status(200).render('tweeter');
+  res.status(200).render('tweeter', {
+    twit: twitData,
+    modal: true
+  });
+});
+
+app.get('/twit/:number', function (req, res, next){
+  var twitNum = req.params.number.toLowerCase();
+  if(twitData[twitNum]){
+    res.status(200).render('tweeter', twitData[twitNum]);
+  }
+  else{
+    next();
+  }
+
 });
 
 

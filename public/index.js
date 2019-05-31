@@ -33,16 +33,16 @@
  */
 function insertNewTwit(twitText, twitAuthor) {
 
+  var twitCreate = Handlebars.templates.newTwit;
+
   //object containing both the text and author needed for the twit
-  var twitContext = {
+  var twitContext = twitCreate({
     text: twitText,
     author: twitAuthor
-  };
+  });
 
-
-  var twitCreate = Handlebars.templates.newTwit;
-  var twitCont = document.querySelector(".twit-container");
-  twitCont.insertAdjacentHTML('beforeend', twitCreate);
+  var twitCont = document.querySelector('.twit-container');
+  twitCont.insertAdjacentHTML('beforeend', twitContext);
 
   console.log("twitCreate: ", twitCreate);
   //return twitCreate;
