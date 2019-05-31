@@ -39,7 +39,11 @@ function insertNewTwit(twitText, twitAuthor) {
     author: twitAuthor
   };
 
-  var twitCreate = Handlebars.templates.newTwit(twitContext);
+
+  var twitCreate = Handlebars.templates.newTwit;
+  var twitCont = document.querySelector(".twit-container");
+  twitCont.insertAdjacentHTML('beforeend', twitCreate);
+
   console.log("twitCreate: ", twitCreate);
   //return twitCreate;
 

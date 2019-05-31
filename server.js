@@ -29,9 +29,11 @@ app.get('/', function(req, res, next){
   res.status(200).render('tweeter');
 });
 
-//thisneeds to be at the end
+
+
+//this needs to be at the end
 app.get('*', function (req, res) {
-  res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+  res.status(404).render('404');
 });
 
 app.listen(port, function () {
