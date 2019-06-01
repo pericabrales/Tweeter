@@ -1,10 +1,13 @@
 <main class="twit-container">
+
+{{#if all}}
+  {{>modal}}
   {{#each twit}}
     {{>newTwit}}
   {{/each}}
 
-</main>
-
-{{#if modal}}
-  {{>modal}}
+{{else}}
+  {{>newTwit}}
 {{/if}}
+
+</main>

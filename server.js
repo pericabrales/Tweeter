@@ -28,24 +28,24 @@ app.use(express.static('public'));
 app.get('/', function(req, res, next){
   res.status(200).render('tweeter', {
     twit: twitData,
-    modal: true
+    modal: true,
+    all: true
   });
 });
 
-app.get('/twit/:number', function (req, res, next){
-  var twitNum = req.params.number.toLowerCase();
-  if(twitData[twitNum]){
-    res.status(200).render('tweeter', twitData[twitNum]);
-  }
+app.get('/twits/:number', function (req, res, next){
+  var twitNum = req.params.number;
+
+    if(twitData[twitNum]){
+      res.status(200).render('tweeter', twitData[twitNum]);
+    }
+
   else{
     next();
   }
 
 });
 
-
-
-//this needs to be at the end
 app.get('*', function (req, res) {
   res.status(404).render('404');
 });
