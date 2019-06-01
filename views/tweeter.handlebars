@@ -1,7 +1,6 @@
 <main class="twit-container">
 
 {{#if all}}
-  {{>modal}}
   {{#each twit}}
     {{>newTwit}}
   {{/each}}
@@ -11,3 +10,7 @@
 {{/if}}
 
 </main>
+
+{{#if modal}}
+  {{>modal}}
+{{/if}}
