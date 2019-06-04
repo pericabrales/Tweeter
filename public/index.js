@@ -41,8 +41,6 @@ function insertNewTwit(twitText, twitAuthor) {
     author: twitAuthor
   };
 
-  console.log("twitCreate: ", twitCreate);
-
   var twitCreate = Handlebars.templates.newTwit(twitContext);
   var twitCont = document.querySelector('.twit-container');
   twitCont.insertAdjacentHTML('beforeend', twitCreate);
